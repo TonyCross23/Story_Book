@@ -1,0 +1,26 @@
+ <div class="col-md-8 offset-2 mt-4">
+        <div class="card my-2 shadow-lg">
+            <div class="card-body">
+                    <span class="float-end text-dark">  {{{editIcon story.user user story._id false}}}</span>
+                 <div class="mt-0 d-flex">
+                    <img src="{{story.user.image}}" class="rounded-circle" width="50" height="50" alt="">
+                    <div class=" ms-1">
+                           <a href="/stories/user/{{story.user._id}}" class="text-dark me-3">
+                           <strong>
+                            {{story.user.displayName}}
+                            </strong>
+                            </a>
+                           <small class="d-block me-3">{{formatDate createdAt 'h:mm a'}}</small>
+                    </div>
+                </div>
+                <div class="mt-3">
+                         <p class="text-center fs-4"><strong>{{story.title}}</strong></p>
+                        <p >{{ story.body }}</p>
+                </div>
+               
+            </div>
+            <div class="card-footer ">
+                <a href="/stories/user/{{story.user._id}}" class="float-end">More From {{story.user.firstName}}</a>
+            </div>
+        </div>
+    </div>
