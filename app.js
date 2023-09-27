@@ -10,6 +10,7 @@ const methodOverride = require('method-override');
 const MongoStroe = require("connect-mongo");
 const exp = require('constants');
 const connectDb = require('./config/db');
+const socket = require('socket.io');
 
 // load env config
 dotenv.config({path : './config/config.env'});
@@ -18,7 +19,6 @@ dotenv.config({path : './config/config.env'});
 connectDb();
 
 const app = express();
-
 
 
 // Body parser
@@ -93,7 +93,8 @@ app.use(methodOverride(function (req,res) {
 // routers
 app.use('/',require('./router/router'));
 app.use('/auth',require('./router/auth'));
-app.use('/stories', require('./router/stories'))
+app.use('/stories', require('./router/stories'));
+app.use('/chat',require('./router/socket'));
 
 
 // port

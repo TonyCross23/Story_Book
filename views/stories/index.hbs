@@ -1,5 +1,5 @@
-<div class="row d-flex justify-content-center">
-   <div class="col-md-7">
+<div class="row d-flex justify-content-center mt-4 ">
+   <div class="col-md-7 search">
      <div class="card">
         <div class="card-body">
             <form id="search-site" action='/stories/search/:query' method='GET'>
@@ -30,7 +30,7 @@
                     <img src="{{user.image}}" class="rounded-circle" width="50" height="50" alt="">
                     <div class=" ms-1">
                         <a href="/stories/user/{{user.id}}" class="text-dark"><strong>{{user.displayName}}</strong></a>
-                        <small class="d-block">{{formatDate createdAt 'h:mm a'}} </small>
+                        <small class="d-block">{{formatDate createdAt   'MMM  DD , h:mm a'}} </small>
                     </div>
                 </div>
                 <div class="mt-3">

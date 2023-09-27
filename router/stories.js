@@ -111,6 +111,26 @@ router.get('/:id', ensureAuth , async (req,res)=>{
   }
 });
 
+// story delete
+router.delete('/:id', ensureAuth , async (req,res)=>{
+  try {
+    let story = await Story.findById(req.params.id).lean()
+
+    if(!story) {
+      res.render('error/400');
+    }
+    if(story.user != req.user.id) {
+      res.redirect('/stories');
+    }else {
+      await Story.deleteOne({_id: req.params.id})
+      res.redirect('/dashboard');
+    }
+  } catch (error) {
+    console.error(error);
+    return res.render('error/500');
+  }
+});
+
 // story user post find status public 
 router.get('/user/:userId', ensureAuth , async (req,res)=>{
   try {
